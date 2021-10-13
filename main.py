@@ -30,7 +30,7 @@ def ENTIRE_PROGRAM():
     print("+ Completed!")
 
     clear_screen()
-    
+
     # Home screen
     show_logo()
     print("""
@@ -39,7 +39,7 @@ def ENTIRE_PROGRAM():
     [3] Mass Download
     [4] Search and Download
     """)
-    
+
     main_menu_opt = input("? Select an option: ")
 
     # List Categories
@@ -94,4 +94,9 @@ def ENTIRE_PROGRAM():
 
 
 if __name__ == "__main__":
-    ENTIRE_PROGRAM()
+    try:
+        ENTIRE_PROGRAM()
+    except Exception as e:
+        print("Error", e)
+    finally:
+        print("HAVE A NICE DAY!")
