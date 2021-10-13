@@ -21,7 +21,13 @@ def show_logo(clrs: bool = True):
     if clrs:
         clear_screen()
     print("""
-PORN HUB DOWNLOADER v0.1
+     ____  _   _     _ _ 
+    |  _ \| | | | __| | |
+    | |_) | |_| |/ _` | |
+    |  __/|  _  | (_| | |
+    |_|   |_| |_|\__,_|_|
+
+  PORN HUB DOWNLOADER v0.1
     """)
 
 
