@@ -76,7 +76,7 @@ class Video:
 
     def download(self, block=True):
         print(crayons.red('Downloading video…'))
-        c = delegator.run('youtube-dl -f 22 {}'.format(self.url), block=block)
+        c = delegator.run('youtube-dl {}'.format(self.url), block=block)
         return c
 
     def download_720p(self, quality: str = None, block=True):
