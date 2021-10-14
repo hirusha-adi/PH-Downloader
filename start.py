@@ -30,18 +30,27 @@ def show_logo(clrs: bool = True):
   PORN HUB DOWNLOADER v0.1
     """)
 
-def SEARCH_AND_DOWNLOAD_ONE_VIDEO(dlqualty: str = None):
+def SEARCH_AND_DOWNLOAD_ONE_VIDEO(dlqualty: str = None, mass: bool = False):
     ph = PornHub()
     search_for = input("? What to search: ")
-    ph_results = ph.search(search_for, max=1)
+
+    if mass:
+        search_amout = int(input("? How many: "))
+        ph_results = ph.search(search_for, max=search_amout)
+    else:
+        ph_results = ph.search(search_for, max=1)
+
     for ph_result in ph_results:
         print("")
         print(f"---------------\n{ph_result.title}\n+ URL: {ph_result.url}\n+ Category: {ph_result.category}")
         print(f"+ View Count: {ph_result.meta['count']}\n+ Like Percentage: {ph_result.meta['percent']}%\n+ Categories:")
+        
         for category in ph_result.meta['category_names']:
             print(category, end=", ")
+        
         print("")
         print("! Downloading video...")
+
         if dlqualty == "max":
             ph_result.download()
         elif dlqualty == "720p":
@@ -53,6 +62,7 @@ def SEARCH_AND_DOWNLOAD_ONE_VIDEO(dlqualty: str = None):
         else:
             print("- Invalid quality selected!")
             qerror = True
+
         if not qerror:
             print("+ Download complete!")
 
@@ -128,18 +138,8 @@ def ENTIRE_PROGRAM():
     
             # Search and Download
             if highest_qm == "2":
-                search_for = input("? What to search: ")
-                ph_results = ph.search(search_for, max=1)
-                for ph_result in ph_results:
-                    print("")
-                    print(f"---------------\n{ph_result.title}\n+ URL: {ph_result.url}\n+ Category: {ph_result.category}")
-                    print(f"+ View Count: {ph_result.meta['count']}\n+ Like Percentage: {ph_result.meta['percent']}%\n+ Categories:")
-                    for category in ph_result.meta['category_names']:
-                        print(category, end=", ")
-                    print("")
-                    print("! Downloading video...")
-                    ph_result.download()
-                    print("+ Download complete!")
+                SEARCH_AND_DOWNLOAD_ONE_VIDEO(dlqualty="max")
+
 
         if quality_menu == "2":
             print("""
@@ -167,18 +167,8 @@ def ENTIRE_PROGRAM():
 
             # Search and Download (720p)
             if p720_qm == "2":
-                search_for = input("? What to search: ")
-                ph_results = ph.search(search_for, max=1)
-                for ph_result in ph_results:
-                    print("")
-                    print(f"---------------\n{ph_result.title}\n+ URL: {ph_result.url}\n+ Category: {ph_result.category}")
-                    print(f"+ View Count: {ph_result.meta['count']}\n+ Like Percentage: {ph_result.meta['percent']}%\n+ Categories:")
-                    for category in ph_result.meta['category_names']:
-                        print(category, end=", ")
-                    print("")
-                    print("! Downloading video...")
-                    ph_result.download_720p()
-                    print("+ Download complete!")
+                SEARCH_AND_DOWNLOAD_ONE_VIDEO(dlqualty="720p")
+
 
         if quality_menu == "3":
             print("""
@@ -206,18 +196,8 @@ def ENTIRE_PROGRAM():
 
             # Search and Download (480p)
             if p480p_qm == "2":
-                search_for = input("? What to search: ")
-                ph_results = ph.search(search_for, max=1)
-                for ph_result in ph_results:
-                    print("")
-                    print(f"---------------\n{ph_result.title}\n+ URL: {ph_result.url}\n+ Category: {ph_result.category}")
-                    print(f"+ View Count: {ph_result.meta['count']}\n+ Like Percentage: {ph_result.meta['percent']}%\n+ Categories:")
-                    for category in ph_result.meta['category_names']:
-                        print(category, end=", ")
-                    print("")
-                    print("! Downloading video...")
-                    ph_result.download_480p()
-                    print("+ Download complete!")
+                SEARCH_AND_DOWNLOAD_ONE_VIDEO(dlqualty="480p")
+
 
         if quality_menu == "4":
             print("""
@@ -245,18 +225,8 @@ def ENTIRE_PROGRAM():
 
             # Search and Download (360p)
             if main_menu_opt == "2":
-                search_for = input("? What to search: ")
-                ph_results = ph.search(search_for, max=1)
-                for ph_result in ph_results:
-                    print("")
-                    print(f"---------------\n{ph_result.title}\n+ URL: {ph_result.url}\n+ Category: {ph_result.category}")
-                    print(f"+ View Count: {ph_result.meta['count']}\n+ Like Percentage: {ph_result.meta['percent']}%\n+ Categories:")
-                    for category in ph_result.meta['category_names']:
-                        print(category, end=", ")
-                    print("")
-                    print("! Downloading video...")
-                    ph_result.download_360p()
-                    print("+ Download complete!")
+                SEARCH_AND_DOWNLOAD_ONE_VIDEO(dlqualty="360p")
+
 
 
 
