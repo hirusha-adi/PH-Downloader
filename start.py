@@ -10,6 +10,7 @@ except:
         os.system("pip3 install youtube-dl")
 
 
+
 def clear_screen():
     if platform.system().lower().startswith('win'):
         os.system("cls")
@@ -29,6 +30,7 @@ def show_logo(clrs: bool = True):
 
   PORN HUB DOWNLOADER v0.1
     """)
+
 
 def DOWNLOAD_PH_VID(dlqualty: str = None, mass: bool = False):
     ph = PornHub()
@@ -85,6 +87,7 @@ def OTHER_2(action: str = None):
                 print(category, end=", ")
             print("")
 
+
 def ENTIRE_PROGRAM():
     clear_screen()
     show_logo()
@@ -96,17 +99,18 @@ def ENTIRE_PROGRAM():
 
     main_menu_opt = input("? Select an option: ")
 
-    # List Categories
     if main_menu_opt == "1":
+        show_logo()
         OTHER_2("list")
         
     
-    # Search videos by word
     if main_menu_opt == "2":
+        show_logo()
         OTHER_2("search_by_name")
         
     
     if main_menu_opt == "3":
+        show_logo()
         print("""
     [1] Highest QUality
     [2] 720p
@@ -116,6 +120,7 @@ def ENTIRE_PROGRAM():
 
         quality_menu = input("? Select a quality: ")
         if quality_menu == "1":
+            show_logo()
             print("""
 + Selected Quality: Highest Available
     [1] Mass Download
@@ -125,14 +130,17 @@ def ENTIRE_PROGRAM():
             
             # Mass Downloader
             if highest_qm == "1":
+                show_logo()
                 DOWNLOAD_PH_VID(dlqualty="max", mass=True)
     
             # Search and Download
             if highest_qm == "2":
+                show_logo()
                 DOWNLOAD_PH_VID(dlqualty="max")
 
 
         if quality_menu == "2":
+            show_logo()
             print("""
 + Selected Quality: 720p
     [1] Mass Download
@@ -142,10 +150,12 @@ def ENTIRE_PROGRAM():
             
             # Mass Downloader (720p)
             if p720_qm == "1":
+                show_logo()
                 DOWNLOAD_PH_VID(dlqualty="720p", mass=True)
 
             # Search and Download (720p)
             if p720_qm == "2":
+                show_logo()
                 DOWNLOAD_PH_VID(dlqualty="720p")
 
 
@@ -159,10 +169,12 @@ def ENTIRE_PROGRAM():
             
             # Mass Downloader (480p)
             if p480p_qm == "1":
+                show_logo()
                 DOWNLOAD_PH_VID(dlqualty="480p", mass=True)
 
             # Search and Download (480p)
             if p480p_qm == "2":
+                show_logo()
                 DOWNLOAD_PH_VID(dlqualty="480p")
 
 
@@ -176,19 +188,18 @@ def ENTIRE_PROGRAM():
 
             # Mass Downloader (360p)
             if main_menu_opt == "1":
+                show_logo()
                 DOWNLOAD_PH_VID(dlqualty="360p", mass=True)
 
             # Search and Download (360p)
             if main_menu_opt == "2":
+                show_logo()
                 DOWNLOAD_PH_VID(dlqualty="360p")
 
 
 
-
-
-
-
 if __name__ == "__main__":
+    
     try:
         ENTIRE_PROGRAM()
     except Exception as e:
